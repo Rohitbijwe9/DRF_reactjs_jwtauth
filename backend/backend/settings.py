@@ -23,7 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u$$s0b+@=-$x$@k48^sz(h9y@eme67ddu$=kxud1k@(knpa(u6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 SECRET_KEY=os.getenv('SECRET_KEY')
@@ -85,10 +84,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'projecttask1',
-        'USER':'root',
-        'PASSWORD':'root',
+        'ENGINE': os.getenv('ENGINE'),
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'PASSWORD':os.getenv('PASSWORD'),
     }
 }
 
@@ -143,5 +142,5 @@ CORS_ALLOWED_ORIGINS = [
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "rohitbijwe9@gmail.com"
-EMAIL_HOST_PASSWORD = "rdkajmvtnmpqonue"
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
